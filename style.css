@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(
+      ellipse at top,
+      transparent 0%,
+      black
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      black,
+      rgba(145, 233, 255, 0.2)
+    ),
+    repeating-linear-gradient(
+      220deg,
+      black 0px,
+      black 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      189deg,
+      black 0px,
+      black 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      148deg,
+      black 0px,
+      black 19px,
+      transparent 19px,
+      transparent 22px
+    ),
+    linear-gradient(90deg, #00fffa, #f0f0f0);
+  z-index: -1;
+}
+.judul-container {
+  text-align: center;
+}
+
+.judul {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 8vw, 80px);
+  background: linear-gradient(
+    90deg,
+    #00fffa,
+    #ffee54,
+    #f0f0f0
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin: 5vh 0 2vh 0;
+  padding: 10px 0;
+  /* jangan pakai text-align di sini */
+}
+
+
+
+.cake {
+  position: absolute;
+  bottom: 20vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-layer,
+.top-layer,
+.middle-layer {
+   height: 120px; /* dulu 80px */
+  width: 360px;  /* dulu 240px */
+
+  position: relative;
+  margin: auto;
+  background-repeat: repeat;
+  background-size: 100%, 200%, 60px, 200px;
+  background-image: 
+    linear-gradient(
+      transparent 50px, 
+      #c49b66 50px,      /* soft gold / caramel */
+      #c49b66 60px,
+      transparent 60px
+    ),
+    radial-gradient(
+      circle at 30px 5px,
+      #5d4037 30px,      /* chocolate brown */
+      #ffe0b2 31px       /* cream */
+    );
+}
+.middle-layer {
+  transform: scale(0.85);
+   top: 100px; 
+  animation: rise-1 2s forwards;
+}
+@keyframes rise-1 {
+  100% {
+     top: 10px;
+  }
+}
+.top-layer {
+  transform: scale(0.7);
+   top: 216px; 
+  animation: rise-2 2s 2s forwards;
+}
+@keyframes rise-2 {
+  100% {
+     top: 40px;
+  }
+}
+.candle {
+  background: repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #ffa89e 5px,
+    #ffa89e 10px
+  );
+   height: 70px; 
+  width: 25px;  
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: rise-3 1s 4s forwards;
+}
+@keyframes rise-3 {
+  100% {
+    bottom: 300px; 
+  }
+}
+.candle:after {
+  content: "";
+  position: absolute;
+   height: 40px;  /* dulu 16px */
+  width: 30px;   /* dulu 16px */
+  background-color: #ffee54;
+  border-radius: 0 50% 50% 50%;
+  transform: scale(0) rotate(45deg);
+  bottom: 70px;  /* dulu 50px */
+  left: 0;
+  animation: flame 1.5s 5s forwards, flicker 0.2s 6.5s infinite;
+  
+  
+ 
+}
+
+
+@keyframes flame {
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
+}
+@keyframes flicker {
+  0% {
+    transform: scale(1) rotate(45deg) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05) rotate(45deg) translateX(1px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1) rotate(45deg) translateX(-1px);
+    opacity: 1;
+  }
+}
+
+
